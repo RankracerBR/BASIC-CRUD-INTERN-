@@ -1,0 +1,23 @@
+{% load static %}
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title></title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="{% static 'css/style.css'%}">
+        <a href="deleting_user">Deletar Conta</a>
+    </head>
+    <body>
+        <h1>Bem vindo {{ nome }}</h1>
+        <p id="matricula">Sua matrícula é: {{ matricula }}</p>
+    <form id="atualizar-form" method="post" action="{% url 'update_user' %}" enctype="multipart/form-data">
+            {% csrf_token %}
+            <input type="text" name="nome" value="{{ nome }}">
+            <textarea name="matricula">{{ matricula }}</textarea>
+            <input type="submit" value="Atualizar Perfil" id="botao_atualizar">
+    </body>
+</html>
